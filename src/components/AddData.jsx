@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import "./AddData.css";
 import Table from "./Table";
 import { Link } from "react-router-dom";
-let baseUrl = "https://asas-rivaj-2021.herokuapp.com";
+let baseUrl = "https://thahreez-2021.herokuapp.com";
+// let baseUrl = "http://localhost:8000";
 
 function AddData({ url, title }) {
   const [image, setImage] = useState("7");
@@ -24,24 +25,22 @@ function AddData({ url, title }) {
   const [firstTeam, setFirstTeam] = useState("");
   const [firstGrade, setFirstGrade] = useState("");
   const [firstAdm, setFirstAdm] = useState("");
-  const [firstChestNo, setFirstChestNo] = useState("");
   const [secondTeam, setSecondTeam] = useState("");
-  const [secondChestNo, setSecondChestNo] = useState("");
   const [secondName, setsecondName] = useState("");
   const [secondGrade, setsecondGrade] = useState("");
   const [secondAdm, setSecondAdm] = useState("");
-  const [thirdChestNo, setThirdChestNo] = useState("");
   const [thirdName, setthirdName] = useState("");
   const [thirdTeam, setThirdTeam] = useState("");
   const [thirdGrade, setthirdGrade] = useState("");
   const [thirdAdm, setThirdAdm] = useState("");
   const getFirstData = (e) => {
     e.preventDefault();
-    axios.get(`${baseUrl}/candidate/${url}/${firstSearch}`).then((data) => {
+    axios.get(`${baseUrl}/candidate/chs/${firstSearch}`).then((data) => {
+      console.log(data);
       setFirstData(data);
       setFirstName(data.data.name);
+      setFirstAdm(data.data.adm);
       setFirstTeam(data.data.team);
-      setFirstChestNo(data.data.chestNo);
     });
   };
   const getSecondData = (e) => {
@@ -50,7 +49,7 @@ function AddData({ url, title }) {
       setSecondData(data);
       setsecondName(data.data.name);
       setSecondTeam(data.data.team);
-      setSecondChestNo(data.data.chestNo);
+      setSecondAdm(data.data.adm);
     });
   };
   const getThirdData = (e) => {
@@ -59,30 +58,26 @@ function AddData({ url, title }) {
       setThirdData(data);
       setthirdName(data.data.name);
       setThirdTeam(data.data.team);
-      setThirdChestNo(data.data.chestNo);
+      setThirdAdm(data.data.adm);
     });
   };
-console.log(thirdAdm);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const answer = window.confirm("are you sure?");
     if (answer) {
       axios
-        .post(`https://asas-rivaj-2021.herokuapp.com/poster/${url}`, {
+        .post(`https://thahreez-2021.herokuapp.com/poster/${url}`, {
           name,
           firstTeam,
           firstName,
-          firstChestNo,
           firstGrade,
           firstAdm,
           secondGrade,
           secondName,
           secondTeam,
-          secondChestNo,
           secondAdm,
           thirdName,
           thirdGrade,
-          thirdChestNo,
           thirdTeam,
           thirdAdm,
           image,
@@ -116,7 +111,7 @@ console.log(thirdAdm);
           </option>
         </select>
       </div>
-      <Link to={`/${url}`}>
+      <Link to={`/`}>
         <img style={{ width: "300px" }} src="/images/logo.jpg" alt="" />
       </Link>
 
@@ -132,7 +127,7 @@ console.log(thirdAdm);
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        
+
         <h2 className="heading one">First Prize </h2>
         {firstData || !individual ? (
           <>
@@ -189,23 +184,6 @@ console.log(thirdAdm);
               </select>
             )}
 
-            {individual ? (
-              <>
-                <h5 className="text-center" htmlFor="lname">
-                  Chest No
-                </h5>
-                <input
-                  type="text"
-                  id="lname"
-                  className="form-control"
-                  name="lastname"
-                  placeholder="Candidate's Chest No.."
-                  value={firstChestNo}
-                />
-              </>
-            ) : (
-              ""
-            )}
             <h5 className="text-center" htmlFor="lname">
               Grade
             </h5>
@@ -226,7 +204,6 @@ console.log(thirdAdm);
               name="lastname"
               placeholder="ADM No:"
               value={firstAdm}
-              onChange={(e) => setFirstAdm(e.target.value)}
             />
           </>
         ) : (
@@ -240,8 +217,7 @@ console.log(thirdAdm);
             <input
               type="text"
               placeholder="enter a chest no"
-              onChange={(e) => 
-                setFirstSearch(e.target.value)}
+              onChange={(e) => setFirstSearch(e.target.value)}
             ></input>
             <input
               type="submit"
@@ -312,23 +288,6 @@ console.log(thirdAdm);
               </select>
             )}
 
-            {individual ? (
-              <>
-                <h5 className="text-center" htmlFor="lname">
-                  Chest No
-                </h5>
-                <input
-                  type="text"
-                  id="lname"
-                  className="form-control"
-                  name="lastname"
-                  placeholder="Candidate's Chest No.."
-                  value={secondChestNo}
-                />
-              </>
-            ) : (
-              ""
-            )}
             <h5 className="text-center" htmlFor="lname">
               Grade
             </h5>
@@ -433,23 +392,6 @@ console.log(thirdAdm);
               </select>
             )}
 
-            {individual ? (
-              <>
-                <h5 className="text-center" htmlFor="lname">
-                  Chest No
-                </h5>
-                <input
-                  type="text"
-                  id="lname"
-                  className="form-control"
-                  name="lastname"
-                  placeholder="Candidate's Chest No.."
-                  value={thirdChestNo}
-                />
-              </>
-            ) : (
-              ""
-            )}
             <h5 className="text-center" htmlFor="lname">
               Grade
             </h5>

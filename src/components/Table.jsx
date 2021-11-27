@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./Table.css";
 
-let baseUrl = "https://asas-rivaj-2021.herokuapp.com";
+let baseUrl = "https://thahreez-2021.herokuapp.com";
 function Table({ url }) {
   const [data, setData] = useState([]);
   useEffect(() => {

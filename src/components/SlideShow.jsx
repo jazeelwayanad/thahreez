@@ -1,24 +1,25 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import "./SlideShow.css";
+import { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
-let baseUrl = "https://asas-rivaj-2021.herokuapp.com";
+import "./SlideShow.css";
 
-function Slideshow({ url }) {
+function Slideshow() {
   const [posters, setPosters] = useState([]);
-  console.log(posters);
   useEffect(() => {
     const getAllPosters = async () => {
-      const result = await axios.get(`${baseUrl}/poster/${url}`);
+      const result = await axios.get(
+        `https://thahreez-2021.herokuapp.com/poster/chs`
+      );
       setPosters(result.data.posters);
     };
     getAllPosters();
   }, []);
+  console.log(posters);
   return (
     <Carousel>
-      {posters.map((data) => (
-        <Carousel.Item data-ride="carousel" data-interval="500">
-          <div style={{ display: "none" }}>
+      {posters.map((data, index) => (
+        <Carousel.Item key={index} data-ride="carousel" data-interval="500">
+          <div className="none" style={{ display: "none" }}>
             {parseInt(data.first.adm, data.second.adm, data.third.adm)}
           </div>
           <div className="result-bg">
@@ -32,11 +33,7 @@ function Slideshow({ url }) {
                 <>
                   <img
                     className="profile"
-                    src={`/profile/${
-                      !data.first.adm || data.first.adm === ""
-                        ? "default.png"
-                        : `${data.first.adm}.JPG`
-                    }`}
+                    src={`/profile/${data.first.adm}.jpg`}
                     alt=""
                   />
                   <h1 className="chestNo">{data.first.chestNo}</h1>
@@ -57,15 +54,17 @@ function Slideshow({ url }) {
                 <h1>{data.second.team}</h1>
               ) : (
                 <>
-                  <img
-                    className="profile"
-                    src={`/profile/${
-                      !data.second.adm || data.second.adm === ""
-                        ? "default.png"
-                        : `${data.second.adm}.JPG`
-                    }`}
-                    alt=""
-                  />
+                  <object
+                    className="default"
+                    data="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    type=""
+                  >
+                    <img
+                      className="profile"
+                      src={`/profile/${data.second.adm}.jpg`}
+                      alt=""
+                    />
+                  </object>
                   <h1 className="chestNo">{data.second.chestNo}</h1>
                 </>
               )}
@@ -86,13 +85,9 @@ function Slideshow({ url }) {
                 <>
                   <img
                     className="profile"
-                    src={`/profile/${
-                      !data.third.adm || data.third.adm === ""
-                        ? "default.png"
-                        : `${data.third.adm}.JPG`
-                    }`}
+                    src={`/profile/${data.third.adm}.jpg`}
                     alt=""
-                  />{" "}
+                  />
                   <h1 className="chestNo">{data.third.chestNo}</h1>
                 </>
               )}
@@ -107,9 +102,11 @@ function Slideshow({ url }) {
               </h3>
             </div>
           </div>
-          <div className="bg">
-            <img className="d-block w-100" src={`/images/pattern.jpg`} alt="" />
-          </div>
+          <img
+            className="d-block w-100"
+            src="https://www.solidbackgrounds.com/images/1920x1080/1920x1080-white-solid-color-background.jpg"
+            alt=""
+          />
         </Carousel.Item>
       ))}
     </Carousel>

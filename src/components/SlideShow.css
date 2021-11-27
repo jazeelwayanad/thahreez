@@ -5,7 +5,9 @@ body {
   position: relative;
   text-align: center;
 }
-
+.default {
+  width: 180px;
+}
 .result-bg {
   position: absolute;
   top: 14%;
