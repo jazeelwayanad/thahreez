@@ -94,7 +94,7 @@ function Slideshow() {
           </div>
           <img
             className="d-block w-100"
-            src="https://www.solidbackgrounds.com/images/1920x1080/1920x1080-white-solid-color-background.jpg"
+            src="https://media.istockphoto.com/photos/hexagonal-honeycomb-abstract-3d-background-picture-id905438692?b=1&k=20&m=905438692&s=170667a&w=0&h=pTjmS2z305vjoU2j-yWgUwEK_mdK-F8IH5yGtVsbDAY="
             alt=""
           />
         </Carousel.Item>
