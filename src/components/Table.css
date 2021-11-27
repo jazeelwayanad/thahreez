@@ -1,0 +1,23 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2f3130;
+  color: white;
+}
+table td,
+table th {
+  text-align: center;
+}
+.icon {
+  cursor: pointer;
+}

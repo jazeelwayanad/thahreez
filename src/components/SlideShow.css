@@ -1,0 +1,103 @@
+body {
+  vertical-align: middle;
+}
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.result-bg {
+  position: absolute;
+  top: 14%;
+  left: 28%;
+  width: fit-content;
+  border-radius: 50px;
+  border: solid 5px rgb(3, 56, 80);
+  padding: 10px 10px;
+  color: #272727;
+}
+.programme-name {
+  font-size: 34px;
+}
+.results {
+  position: relative;
+  top: 16rem;
+}
+.first {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 12%;
+}
+.profile {
+  width: 150px;
+  border-radius: 20px;
+}
+.second {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  left: 41%;
+}
+.third {
+  position: absolute;
+  top: 50%;
+  right: 14%;
+  text-align: center;
+}
+.chestNo {
+  color: #5f028a;
+  font-weight: bold;
+}
+.name {
+  font-size: 25px;
+}
+.grade {
+  color: rgb(73, 73, 73);
+  font-size: 35px;
+  font-weight: bold;
+}
+.team-grade {
+  position: absolute;
+  right: 6rem;
+  top: 10rem;
+  font-size: 36px;
+  font-weight: bold;
+}
+.team {
+  font-family: sans-serif;
+  color: rgb(1, 73, 139);
+}
+.slideshow {
+  margin: 0;
+  overflow: hidden;
+  max-width: 1500px;
+  padding: 0%;
+}
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+.slide {
+  display: inline-block;
+  height: 100px;
+  width: 200vh;
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+}
+.slideshowDot.active {
+  background-color: #2f2d30;
+}
