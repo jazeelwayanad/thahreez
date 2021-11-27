@@ -35,7 +35,9 @@ function Slideshow() {
                     className="profile"
                     src={`/profile/${data.first.adm}.jpg`}
                     alt=""
+                    onError="this.onerror=null;this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'"
                   />
+
                   <h1 className="chestNo">{data.first.chestNo}</h1>
                 </>
               )}
@@ -50,24 +52,15 @@ function Slideshow() {
               </h3>
             </div>
             <div className="second">
-              {!data.first.name ? (
-                <h1>{data.second.team}</h1>
-              ) : (
-                <>
-                  <object
-                    className="default"
-                    data="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                    type=""
-                  >
-                    <img
-                      className="profile"
-                      src={`/profile/${data.second.adm}.jpg`}
-                      alt=""
-                    />
-                  </object>
-                  <h1 className="chestNo">{data.second.chestNo}</h1>
-                </>
-              )}
+              <img
+                className="profile"
+                src={`/profile/${data.second.adm}.jpg`}
+                alt=""
+                onError="this.onerror=null;this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'"
+              />
+
+              <h1 className="chestNo">{data.second.chestNo}</h1>
+
               <h3 className="name">{data.second.name}</h3>
               {data.second.name ? (
                 <h3 className="team">{data.second.team}</h3>
@@ -79,18 +72,15 @@ function Slideshow() {
               </h3>
             </div>
             <div className="third">
-              {!data.first.name ? (
-                <h1>{data.third.team}</h1>
-              ) : (
-                <>
-                  <img
-                    className="profile"
-                    src={`/profile/${data.third.adm}.jpg`}
-                    alt=""
-                  />
-                  <h1 className="chestNo">{data.third.chestNo}</h1>
-                </>
-              )}
+              <img
+                className="profile"
+                src={`/profile/${data.third.adm}.jpg`}
+                alt=""
+                onError="this.onerror=null;this.src='<?=base_url()?>assets1/img/default.jpg';"
+              />
+
+              <h1 className="chestNo">{data.third.chestNo}</h1>
+
               <h3 className="name">{data.third.name}</h3>
               {data.third.name ? (
                 <h3 className="team">{data.third.team}</h3>
