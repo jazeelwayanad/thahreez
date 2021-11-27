@@ -11,15 +11,18 @@ body {
 .result-bg {
   position: absolute;
   top: 14%;
-  left: 28%;
+  left: 38%;
   width: fit-content;
   border-radius: 50px;
-  border: solid 5px rgb(3, 56, 80);
+  /* border: solid 5px rgb(3, 56, 80); */
   padding: 10px 10px;
   color: #272727;
+  align-items: center;
 }
+
 .programme-name {
-  font-size: 34px;
+  font-size: 44px;
+  font-weight: 800;
 }
 .results {
   position: relative;
@@ -56,7 +59,7 @@ body {
 }
 .grade {
   color: rgb(73, 73, 73);
-  font-size: 35px;
+  font-size: 55px;
   font-weight: bold;
 }
 .team-grade {
@@ -69,6 +72,7 @@ body {
 .team {
   font-family: sans-serif;
   color: rgb(1, 73, 139);
+  font-size: 30px;
 }
 .slideshow {
   margin: 0;
